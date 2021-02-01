@@ -37,7 +37,7 @@ jobs:
           chmod 644 ~/.ssh/known_hosts
 
       - name: Update files
-        run: rsync -avzhO --no-p --delete -e "ssh -i ./deploy_key" public/ ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:/var/www/docs.openfuture.io/
+        run: rsync -avzhO --no-p -e "ssh -i ./deploy_key" public/ ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:/var/www/docs.openfuture.io/
 
       - name: Update SSL certificate
         run: |
